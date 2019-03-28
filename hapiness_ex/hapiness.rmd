@@ -1,0 +1,67 @@
+---
+title: "happiness_example"
+author: "SGG"
+date: "28 marÃ§ de 2019"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+csl: ecology-letters.csl
+bibliography: C:/Users/Ecologia/Documents/biblio/library.bib
+---
+```{r}
+#Addins; remedy, té una ajuda per saber com es formategen les coses
+```
+
+# Hapiness importance
+#INTRODUCTION
+
+This is teh introduction of a very interesting paper about the importance of solar hour for hapiness[@Miguel-Chinchilla2014][@Abrantes2014; @Fukami2015c][@Arim2010]
+
+#METHODS
+```{r importem dades, echo=FALSE}
+happy.dat <- read.table("data.txt",header=T)
+#datos han d'estar a la mateixa carpeta del markdown, o posar l'extensió on es troba
+head(happy.dat)
+
+happy.dat<-happy.dat[-12,]
+```
+
+```{r model}
+#relación hapiness hours
+model <- lm(happiness~sunshine,data=happy.dat)
+summary(model)
+
+```
+
+```{r}
+#per insertar resulatts d'R al text es posa l'accent obert i r; `r...i la instrucció que volem.
+```
+
+We interviewed `r nrow(happy.dat)` people and fitted a linear model
+
+#RESULTS
+We found that happiness was positivelly related to sunshine hours (slope=`r round(coef(model)[2],digits=2)`).
+
+```{r plot}
+library(visreg)
+visreg(model)
+```
+
+
+```{r taula resultas}
+library(knitr)
+library(xtable)
+kable(xtable(model))
+```
+
+##DISCUSSION
+Sunshine is good for happiness
+
+##REFERENCES
+```{r}
+#com fer ref
+#desde mendeley, exportem a bibtex
+```
+
