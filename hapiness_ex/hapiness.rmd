@@ -21,7 +21,7 @@ This is teh introduction of a very interesting paper about the importance of sol
 
 #METHODS
 ```{r importem dades, echo=FALSE}
-happy.dat <- read.table("data.txt",header=T)
+happy.dat <- read.table("hapiness_ex/data.txt",header=T)
 #datos han d'estar a la mateixa carpeta del markdown, o posar l'extensió on es troba
 head(happy.dat)
 
@@ -43,6 +43,11 @@ We interviewed `r nrow(happy.dat)` people and fitted a linear model
 
 #RESULTS
 We found that happiness was positivelly related to sunshine hours (slope=`r round(coef(model)[2],digits=2)`).
+
+```{r boxplot}
+plot(happy.dat$happiness)
+```
+
 
 ```{r plot}
 library(visreg)
