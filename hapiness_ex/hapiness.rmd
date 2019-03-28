@@ -51,7 +51,7 @@ plot(happy.dat$happiness)
 
 ```{r plot}
 library(visreg)
-visreg(model)
+visreg(model,gg=TRUE)
 ```
 
 
